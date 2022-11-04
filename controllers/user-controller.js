@@ -13,7 +13,7 @@ const userController = {
         });
     },
 
-    getUserByID({ params }, res) {
+    getUserById({ params }, res) {
         User.findOne({ _id: params.id })
         .populate({
             path: 'comments',

@@ -26,11 +26,11 @@ router.route('/:userID')
 .post(createComment);
 
 // /api/comments/:commentId/discussions
-router.route('/:thoughtId/discussions')
-.post(addDiscussion);
+router.route('/:commentId/discussions')
+.post(createDiscussion);
 
 // /api/comments/:commentId/discussionId
 router.route('/:commentId/discussions/:discussionId')
-.delete(deleteDiscussion);
+.delete(removeDiscussion);
 
 module.exports = router;
