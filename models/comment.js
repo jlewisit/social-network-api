@@ -1,6 +1,6 @@
 // Import Dependencies
 const { Schema, model, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/date-format');
 
 // Reaction is a subdocument of Comment
 const ReactionSchema = new Schema(

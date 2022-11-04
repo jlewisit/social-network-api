@@ -9,7 +9,7 @@ const {
     deleteComment,
     createDiscussion,
     removeDiscussion
-} = require('../..controllers/comment-controller');
+} = require('../../controllers/comment-controller');
 
 // /api/comments
 router.route('/')
