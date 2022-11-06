@@ -37,9 +37,22 @@ const commentController = {
         });
     },
 
-    createComment({ body }, res) {
+    createComment({ params, body }, res) {
         Comment.create(body)
-        .then(( dbCommentData => res.json(dbCommentData)))
+        .then(({ _id }) => {
+            return User.findOneAndUpdate(
+                { _id: params.userId },
+                { $push: { comments: _id }},
+                { new: true, runValidators: true }
+            );
+        })
+        .then(dbCommentData => {
+            if(!dbCommentData) {
+                res.status(404).json({ message: 'No comment found with this id!'});
+                return;
+            }
+            res.json(dbCommentData)
+        })
         .catch(err => res.json(err));
     },
 
